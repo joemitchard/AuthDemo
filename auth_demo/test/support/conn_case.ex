@@ -25,8 +25,9 @@ defmodule AuthDemo.ConnCase do
       import Ecto.Changeset
       import Ecto.Query
 
+      import AuthDemo.ConnCase.Helpers
       import AuthDemo.Router.Helpers
-
+      import AuthDemo.Factory
       # The default endpoint for testing
       @endpoint AuthDemo.Endpoint
     end

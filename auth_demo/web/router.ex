@@ -19,8 +19,9 @@ defmodule AuthDemo.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", AuthDemo do
-  #   pipe_through :api
-  # end
+  scope "/api", AuthDemo do
+    pipe_through :api
+
+    resources "/todos", TodoController, only: [:index, :show]
+  end
 end
