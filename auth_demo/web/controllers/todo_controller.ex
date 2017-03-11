@@ -12,4 +12,17 @@ defmodule AuthDemo.TodoController do
       todo = Repo.get!(Todo, id)
       render conn, "show.json", todo: todo
   end
+
+  def create(conn, params) do
+      # plug passes the body of the request as the params arg
+
+      changeset = Todo.changeset(%Todo{}, params)
+
+    case Repo.insert(changeset) do
+        {:ok, todo} ->
+            render(conn, "create.json", todo: todo)
+        {:error, changeset} ->
+            render(conn, "error.json", changeset: changeset)
+    end
+  end
 end

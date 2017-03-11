@@ -22,6 +22,6 @@ defmodule AuthDemo.Router do
   scope "/api", AuthDemo do
     pipe_through :api
 
-    resources "/todos", TodoController, only: [:index, :show]
+    resources "/todos", TodoController, only: [:index, :show, :create]
   end
 end

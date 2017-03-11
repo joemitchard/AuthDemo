@@ -11,6 +11,20 @@ defmodule AuthDemo.TodoView do
       %{todo: todo_json(todo)}
   end
 
+  def render("create.json", %{todo: todo}) do
+      %{
+          status: :OK,
+          title: todo.title
+      }
+  end
+
+  def render("error.json", %{changeset: changeset}) do
+      %{
+          status: :NOTOK,
+          errors: errors_json(changeset)
+      }
+  end
+
   def todo_json(todo) do
     %{
       title: todo.title,
@@ -19,4 +33,5 @@ defmodule AuthDemo.TodoView do
       updated_at: todo.updated_at
     }
   end
+
 end
