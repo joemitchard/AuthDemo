@@ -16,7 +16,7 @@ defmodule AuthDemo.TodoController do
   def create(conn, params) do
       # plug passes the body of the request as the params arg
 
-      changeset = Todo.changeset(%Todo{}, params)
+    changeset = Todo.changeset(%Todo{}, params)
 
     case Repo.insert(changeset) do
         {:ok, todo} ->

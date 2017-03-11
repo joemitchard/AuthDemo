@@ -51,6 +51,7 @@ defmodule AuthDemo.Web do
 
       import AuthDemo.Router.Helpers
       import AuthDemo.ErrorHelpers
+      import AuthDemo.JsonHelpers
       import AuthDemo.Gettext
     end
   end
